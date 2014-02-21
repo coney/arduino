@@ -1,0 +1,7 @@
+#ino projects
+.build
+
+#vs projects
+*.sln
+*.suo
+*.vcxproj*
