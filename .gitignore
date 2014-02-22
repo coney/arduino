@@ -5,3 +5,6 @@
 *.sln
 *.suo
 *.vcxproj*
+
+# external reference for ide
+arduino-ref
