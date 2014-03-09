@@ -7,7 +7,8 @@
 *.vcxproj*
 
 # external reference for ide
-arduino-ref
+libref
+sync-libref.sh
 
 # temp spike project
 spike/temp
