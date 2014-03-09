@@ -8,8 +8,8 @@ void loop();
 #include "lcd1602.h"
 
 
-#define S1TX    14
-#define S1RX    15
+#define S1TX    52
+#define S1RX    53
 
 LCD1602 lcd;
 SoftwareSerial s1(S1RX, S1TX);
@@ -22,10 +22,13 @@ void setup()
 
 void loop()
 {
-    String str = s1.readString();
-    if (str.length())
+    lcd.printAt(0, "%d   ", s1.available());
+    if (s1.available())
     {
-        lcd.printAt(0, "data arrive");
-        lcd.printAt(1, "%s", str.c_str());
+        String str = s1.readStringUntil('\0');
+        if (str.length())
+        {
+            lcd.printAt(1, "%s", str.c_str());
+        }
     }
 }
