@@ -18,3 +18,10 @@ spike/temp
 # build intermadite files
 *.d
 *.o
+
+# blade intermediate files
+.Building.lock
+.sconsign.dblite
+blade-bin
+build??_release
+

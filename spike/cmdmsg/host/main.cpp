@@ -1,6 +1,8 @@
 #include "CmdMessenger.h"
 
-int main(int argc, char **argv) 
-{
+#ifndef SPEC
+int main(int argc, char **argv) {
 
 }
+
+#endif

@@ -1,6 +1,7 @@
 #ifndef __HOST_SERIAL_H__
 #define __HOST_SERIAL_H__
 
+#include "stdint.h"
 #include <string.h>
 #include <sys/time.h>
 
@@ -20,39 +21,18 @@ inline static unsigned long millis()
 
 class Stream{
 public:
-    Stream() {}
-    virtual ~Stream() {}
-    int print(const char *data)
-    {
-        int pos = 0;
-        while (*(data + pos))
-        {
-            print(*(data + pos));
-            ++pos;
-        }
-        return pos;
-    }
-    int print(byte data) 
-    {
-        return 0;
-    }
-    size_t available() 
-    {
-        return 0;
-    }
+    Stream();
+    virtual ~Stream();
 
-    size_t readBytes(char *buffer, size_t length) 
-    {
-        return 0;
-    }
-    int println()
-    {
-        return 0;
-    }
-    byte read()
-    {
-        return 0;
-    }
+    // stream write for adruino side
+    virtual int print(byte data) = 0;
+    int print(const char *data);
+    int println();
+
+    // stream read for arduino side
+    virtual size_t available() = 0;
+    virtual byte read() = 0;
+    size_t readBytes(char *buffer, size_t length);
 };
 
 #endif // HOST_SERIAL_H__
