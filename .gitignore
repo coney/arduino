@@ -5,6 +5,7 @@
 *.sln
 *.suo
 *.vcxproj*
+*.*sdf
 
 # external reference for ide
 libref
@@ -13,3 +14,7 @@ sync-libref.sh
 # temp spike project
 spike/temp
 .idea
+
+# build intermadite files
+*.d
+*.o

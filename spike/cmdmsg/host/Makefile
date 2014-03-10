@@ -13,7 +13,7 @@ TARGET  := $(strip $(TARGET))
 #CXX     = g++$(GCC_SUFFIX)
 #CPP     = cpp$(GCC_SUFFIX)
 CFLAGS  += $(C_INC) -pthread -Wall
-CXXFLAGS+= $(C_INC) -pthread -std=c++0x -Wall -Wno-conversion-null
+CXXFLAGS+= $(C_INC) -pthread -std=c++0x -Wall -Wno-conversion-null -Wno-unused-private-field -Wno-unused-value -Wno-non-literal-null-conversion
 
 C_INC   = $(INC_DIR:%=-I%) $(INC)
 C_LIB   = $(LIB_DIR:%=-L%) $(LIB)
