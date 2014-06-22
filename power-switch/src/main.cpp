@@ -6,7 +6,7 @@ void loop();
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 #define SWITCH_INTERRUPT_INTERVAL_MS        1000
-#define SHUTTING_DOWN_TIMEOUT_S             10
+#define SHUTTING_DOWN_TIMEOUT_S             20
 
 
 static int power_ctl_pins[] = {4};

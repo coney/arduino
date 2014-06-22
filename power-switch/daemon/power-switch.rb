@@ -13,6 +13,7 @@ class PowerSwitch
 
   def initialize sp
     @serial_io = sp
+    @shutting_down = false
   end
 
   def start
@@ -21,8 +22,11 @@ class PowerSwitch
         ap "replay heartbeat"
         heartbeat
       elsif line == "goodbye"
-        ap "shutdown now"
-        `shutdown -H now`
+        unless @shutting_down
+          ap "shutdown now"
+          `shutdown -hH now`
+          @shutting_down = true
+        end
         wait_for_shutting_down
       else
         ap "read #{line}"
