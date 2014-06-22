@@ -57,6 +57,8 @@ class PowerSwitch
 
 end
 
+Daemon.daemonize "/var/run/power-switch.pid", "/var/log/power-switch.log"
+
 serial = SerialPort.new SERIAL_PORT, SERIAL_RATE
 serial.read_timeout = 100
 
