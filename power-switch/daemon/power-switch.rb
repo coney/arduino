@@ -19,11 +19,9 @@ class PowerSwitch
   def start
     read_form_serial do |line|
       if line == "hello"
-        ap "replay heartbeat"
         heartbeat
       elsif line == "goodbye"
         unless @shutting_down
-          ap "shutdown now"
           `shutdown -hH now`
           @shutting_down = true
         end
@@ -48,10 +46,12 @@ class PowerSwitch
   end
 
   def heartbeat
+    ap "replay heartbeat"
     write_to_serial "alive"
   end
 
   def wait_for_shutting_down
+    ap "shutting down"
     write_to_serial "wait"
   end
 
