@@ -1,0 +1,7 @@
+source 'http://ruby.taobao.org/'
+
+gem 'serialport'
+gem 'rake'
+gem 'daemon'
+gem 'awesome_print'
+
