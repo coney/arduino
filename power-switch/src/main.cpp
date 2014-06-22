@@ -191,11 +191,13 @@ void loop()
 }
 
 void on_serial_message(const String &message) {
-    if (message == "alive") {
-        if (power_state.state == BOOTING) {
-            update_power_state(RUNNING);
-        }
+    if (message == "alive" && power_state.state == BOOTING) {
+        update_power_state(RUNNING);
     }
+    else if (message == "wait" && power_state.state == STOPPING) {
+        update_power_state(STOPPING);
+    }
+    
 }
 
 static String serial_input;

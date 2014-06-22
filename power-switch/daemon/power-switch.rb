@@ -23,6 +23,7 @@ class PowerSwitch
       elsif line == "goodbye"
         ap "shutdown now"
         `shutdown -H now`
+        wait_for_shutting_down
       else
         ap "read #{line}"
       end
@@ -44,6 +45,10 @@ class PowerSwitch
 
   def heartbeat
     write_to_serial "alive"
+  end
+
+  def wait_for_shutting_down
+    write_to_serial "wait"
   end
 
 end
